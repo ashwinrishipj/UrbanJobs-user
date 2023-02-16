@@ -1,57 +1,60 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
+import { validateEmailID, validatePassword } from "../../helpers/validateForm/ValidateForm";
 
 function Login() {
-  const userId = useRef("");
-  const userPassword = useRef("");
+  let userId = useRef("");
+  let userPassword = useRef("");
+  const [buttonDisabled, setbuttonDisabled] = useState(true);
 
-  function validate(e) {
+  function validateSignIn(e) {
     e.preventDefault();
-    
+
+    if (!buttonDisabled) {
+      alert("validating user");
+    } else {
+      alert("please check your username and password")
+    }
   };
 
+  function setUser() {
+    if ((validateEmailID(userId.current.value) && validatePassword(userPassword.current.value))) setbuttonDisabled(false)
+    else setbuttonDisabled(true);
+  }
+
   return (
-    <>
-      <form onSubmit={validate}>
-        <>
-          <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">
-              Email address
-            </label>
-            <input
-              type="email"
-              class="form-control"
-              id="exampleInputEmail1"
-              aria-describedby="emailHelp"
-              ref={userId}
-            />
-          </div>
-          <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">
-              Password
-            </label>
-            <input
-              type="password"
-              class="form-control"
-              id="exampleInputPassword1"
-              ref={userPassword}
-            />
-          </div>
-          <div class="mb-3 form-check">
-            <input
-              type="checkbox"
-              class="form-check-input"
-              id="exampleCheck1"
-            />
-            <label class="form-check-label" for="exampleCheck1">
-              Check me out
-            </label>
-          </div>
-          <button type="submit" class="btn btn-primary">
-            Submit
-          </button>
-        </>
-      </form>
-    </>
+    <div>
+      <h4 className="text-center">Login</h4>
+      <div className="mb-3 mt-4">
+        <label className="form-label shadow-none">
+          Email address
+        </label>
+        <input
+          type="email"
+          className="form-control shadow-none"
+          ref={userId}
+          placeholder="john@web.com"
+          onChange={setUser}
+        />
+      </div>
+      <div className="mb-3">
+        <label className="form-label ">
+          Password
+        </label>
+        <input
+          type="password"
+          className="form-control shadow-none"
+          ref={userPassword}
+          placeholder="*************"
+          onChange={setUser}
+        />
+      </div>
+      <div className="mb-3">
+        Forgot Password?
+      </div>
+      <button type="button" disabled={buttonDisabled} className="btn btn-primary" onClick={validateSignIn}>
+        Submit
+      </button>
+    </div>
   );
 }
 

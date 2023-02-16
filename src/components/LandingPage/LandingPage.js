@@ -10,9 +10,7 @@ function LandingPage() {
     <div className="row update bg-dark">
       <Card className="col-lg-4 mx-auto my-auto">
         <Card.Body>
-          <Card.Text>
             <Login />
-          </Card.Text>
         </Card.Body>
       </Card>
     </div>
