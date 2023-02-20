@@ -1,10 +1,15 @@
 import React, { useRef, useState } from "react";
 import { validateEmailID, validatePassword } from "../../helpers/validateForm/ValidateForm";
+import './Login.css';
+import { useDispatch } from "react-redux";
+import { currentPage } from "../../redux/actions";
 
 function Login() {
   let userId = useRef("");
   let userPassword = useRef("");
   const [buttonDisabled, setbuttonDisabled] = useState(true);
+
+  const dispatch = useDispatch();
 
   function validateSignIn(e) {
     e.preventDefault();
@@ -17,8 +22,8 @@ function Login() {
   };
 
   function setUser() {
-    if ((validateEmailID(userId.current.value) && validatePassword(userPassword.current.value))) setbuttonDisabled(false)
-    else setbuttonDisabled(true);
+    (validateEmailID(userId.current.value) && validatePassword(userPassword.current.value)) ? setbuttonDisabled(false)
+      : setbuttonDisabled(true);
   }
 
   return (
@@ -48,12 +53,20 @@ function Login() {
           onChange={setUser}
         />
       </div>
-      <div className="mb-3">
-        Forgot Password?
+
+      <div>
+        <a href=";" className="mt-3">
+          Forgot password?
+        </a>
       </div>
-      <button type="button" disabled={buttonDisabled} className="btn btn-primary" onClick={validateSignIn}>
-        Submit
+
+      <button type="button" disabled={buttonDisabled} className="mt-3 btn btn-info shadow-none btn-transform col-5" onClick={validateSignIn}>
+        Login
       </button>
+
+      <div className="mt-3">
+        <label >Don't have an account?</label> <button onClick={() => dispatch(currentPage('register'))}>Register here</button>
+      </div>
     </div>
   );
 }

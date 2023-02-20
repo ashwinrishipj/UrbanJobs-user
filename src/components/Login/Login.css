@@ -1,0 +1,21 @@
+.btn-transform{
+    text-align: center !important;
+} 
+.btn-transform:active{
+    transform: translateY(4px) !important;
+}
+.register{
+    float: right !important;
+}
+
+a{
+    text-decoration: none !important;
+}
+
+a:hover{
+    text-decoration: underline !important;
+}
+
+a:active{
+    color: green !important;
+}
