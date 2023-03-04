@@ -1,4 +1,4 @@
-export function currentPage(param = "login") {
+export const currentPage = (param = "login") => {
     if (param !== null || undefined) {
         return {
             type: 'CURRENTPAGE',
@@ -7,7 +7,6 @@ export function currentPage(param = "login") {
     }
 
     return {
-        type: 'CURRENTPAGE',
-        payload: undefined
+        type: null
     }
 }

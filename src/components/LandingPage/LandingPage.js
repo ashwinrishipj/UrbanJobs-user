@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import Login from "../Login/Login";
 import './LandingPage.css';
 import { useSelector } from "react-redux";
@@ -10,8 +10,8 @@ function LandingPage() {
 
   const route = useSelector(state => state.currentPage);
 
-  console.log("route:", route);
-  
+  console.log("route in the redux state", route);
+
   alert(route)
   return (
     <div className="container-fluid">
@@ -19,14 +19,15 @@ function LandingPage() {
         <Card className="col-lg-4 mx-auto my-auto">
           <Card.Body>
 
-            {(route === "login" &&
+            {(route.payload === "login" ?
 
               <Login />
-            ) || (route === "register" &&
+              :
 
               <Register />
 
-              )}
+            )}
+
           </Card.Body>
         </Card>
       </div>
