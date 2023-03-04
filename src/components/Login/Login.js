@@ -25,9 +25,6 @@ function Login() {
       : setbuttonDisabled(true);
   }
 
-  function triggerRegister() {
-  }
-
   return (
     <div>
       <h4 className="text-center">Login</h4>
@@ -67,7 +64,7 @@ function Login() {
       </button>
 
       <div className="mt-3">
-        <label >Don't have an account?</label> <button className="btn shadow-none btn-warning" onClick={() => dispatch({ type: 'CURRENTPAGE', payload: 'register' })}>Register here</button>
+        <label >Don't have an account?</label> <button className="btn shadow-none btn-warning" onClick={() => dispatch(currentPage('register'))}>Register here</button>
       </div>
     </div>
   );

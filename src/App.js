@@ -5,7 +5,8 @@ import { reducers } from "./redux/reducers";
 
 function App() {
   const store = configureStore(
-    {reducer: reducers}
+    {reducer: reducers},
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   );
 
   return (

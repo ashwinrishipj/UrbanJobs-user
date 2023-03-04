@@ -9,23 +9,20 @@ import Register from "../Register/Register";
 function LandingPage() {
 
   const route = useSelector(state => state.currentPage);
-
   console.log("route in the redux state", route);
 
-  alert(route)
+  alert(route);
+  
   return (
     <div className="container-fluid">
       <div className="row update bg-dark">
         <Card className="col-lg-4 mx-auto my-auto">
           <Card.Body>
 
-            {(route.payload === "login" ?
-
+            {(route === "login" ?
               <Login />
               :
-
               <Register />
-
             )}
 
           </Card.Body>
