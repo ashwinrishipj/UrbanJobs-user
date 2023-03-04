@@ -1,16 +1,15 @@
 import LandingPage from "./components/LandingPage/LandingPage";
-import { createStore } from "redux";
+import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from "react-redux";
-import allReducers from "./redux/reducers";
-
-const myStore = createStore(
-  allReducers,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
+import { reducers } from "./redux/reducers";
 
 function App() {
+  const store = configureStore(
+    {reducer: reducers}
+  );
+
   return (
-    <Provider store={myStore}>
+    <Provider store={store}>
       <LandingPage />
     </Provider>
   )

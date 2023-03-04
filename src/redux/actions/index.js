@@ -1,9 +1,13 @@
-export const currentPage = (pageName) => {
-    if (pageName !== undefined || null) {
+export function currentPage(param = "login") {
+    if (param !== null || undefined) {
         return {
             type: 'CURRENTPAGE',
-            payload: pageName
+            payload: param
         }
     }
-    return { type: 'null' }
+
+    return {
+        type: 'CURRENTPAGE',
+        payload: undefined
+    }
 }

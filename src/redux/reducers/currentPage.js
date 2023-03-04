@@ -1,10 +1,18 @@
 const currentPage = (state = "login", action) => {
-  switch (action.payload) {
-    case "CURRENTPAGE":
-      return action.payload;
-    default:
-      return state;
+
+  console.log("action", action);
+
+  if (action?.paload) {
+    switch (action.payload) {
+      case "CURRENTPAGE":
+        return action.payload;
+
+      default:
+        return state;
+    }
   }
+
+  return state;
 };
 
 

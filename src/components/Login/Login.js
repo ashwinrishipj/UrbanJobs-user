@@ -1,14 +1,13 @@
 import React, { useRef, useState } from "react";
+import { useDispatch } from "react-redux";
 import { validateEmailID, validatePassword } from "../../helpers/validateForm/ValidateForm";
 import './Login.css';
-import { useDispatch } from "react-redux";
-import { currentPage } from "../../redux/actions";
+import currentPage from "../../redux/reducers/currentPage";
 
 function Login() {
   let userId = useRef("");
   let userPassword = useRef("");
   const [buttonDisabled, setbuttonDisabled] = useState(true);
-
   const dispatch = useDispatch();
 
   function validateSignIn(e) {
@@ -24,6 +23,9 @@ function Login() {
   function setUser() {
     (validateEmailID(userId.current.value) && validatePassword(userPassword.current.value)) ? setbuttonDisabled(false)
       : setbuttonDisabled(true);
+  }
+
+  function triggerRegister(){
   }
 
   return (
@@ -65,7 +67,7 @@ function Login() {
       </button>
 
       <div className="mt-3">
-        <label >Don't have an account?</label> <button onClick={() => dispatch(currentPage('register'))}>Register here</button>
+        <label >Don't have an account?</label> <button className="btn-warning" onClick={()=>dispatch(currentPage('register'))}>Register here</button>
       </div>
     </div>
   );

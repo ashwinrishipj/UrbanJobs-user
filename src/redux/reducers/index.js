@@ -1,8 +1,7 @@
 import { combineReducers } from "redux";
 import currentPage from "./currentPage";
 
-const reducers = combineReducers({
+export const reducers = combineReducers({
   currentPage,
 });
 
-export default reducers;
