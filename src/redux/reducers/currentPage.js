@@ -1,7 +1,7 @@
 const currentPage = (state = "login", action) => {
 
-  if (action?.payload !== (undefined || null)) {
-    switch (action.payload) {
+  if (action?.type !== (undefined || null)) {
+    switch (action.type) {
       case "CURRENTPAGE":
         return action.payload;
 

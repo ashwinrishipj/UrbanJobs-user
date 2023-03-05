@@ -11,24 +11,24 @@ function LandingPage() {
   const route = useSelector(state => state.currentPage);
   console.log("route in the redux state", route);
 
-  alert(route);
-  
   return (
-    <div className="container-fluid">
-      <div className="row update bg-dark">
-        <Card className="col-lg-4 mx-auto my-auto">
-          <Card.Body>
+    <React.Fragment>
+      <div className="container-fluid">
+        <div className="row update bg-dark">
+          <Card className="col-lg-4 mx-auto my-auto">
+            <Card.Body>
 
-            {(route === "login" ?
-              <Login />
-              :
-              <Register />
-            )}
+              {(route === "login" ?
+                <Login />
+                :
+                <Register />
+              )}
 
-          </Card.Body>
-        </Card>
+            </Card.Body>
+          </Card>
+        </div>
       </div>
-    </div>
+    </React.Fragment>
   );
 }
 

@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { validateEmailID, validatePassword } from "../../helpers/validateForm/ValidateForm";
 import './Login.css';
-import currentPage from "../../redux/reducers/currentPage";
+import currentPage from "../../redux/actions";
 
 function Login() {
   let userId = useRef("");
@@ -64,7 +64,7 @@ function Login() {
       </button>
 
       <div className="mt-3">
-        <label >Don't have an account?</label> <button className="btn shadow-none btn-warning" onClick={() => dispatch(currentPage('register'))}>Register here</button>
+        <label >Don't have an account?</label> <a href="#" role="link" aria-disabled="true" onClick={() => dispatch(currentPage('register'))} value="register here" />
       </div>
     </div>
   );
