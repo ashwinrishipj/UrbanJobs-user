@@ -5,29 +5,36 @@ import Login from "../Login/Login";
 import './LandingPage.css';
 import { useSelector } from "react-redux";
 import Register from "../Register/Register";
+import Dashboard from "../DashBoard/Dashboard";
 
 function LandingPage() {
 
   const route = useSelector(state => state.currentPage);
   console.log("route in the redux state", route);
 
+  function LoadComponents() {
+    switch (route) {
+      case 'login':
+        return <Login />;
+
+      case 'register':
+        return <Register />;
+
+      case 'dashboard':
+        return <Dashboard />;
+
+      case 'logout':
+        return <Login />
+
+      default:
+        return <Login />
+    }
+  }
+
+
   return (
     <React.Fragment>
-      <div className="container-fluid">
-        <div className="row update bg-dark">
-          <Card className="col-lg-4 mx-auto my-auto">
-            <Card.Body>
-
-              {(route === "login" ?
-                <Login />
-                :
-                <Register />
-              )}
-
-            </Card.Body>
-          </Card>
-        </div>
-      </div>
+      <LoadComponents />
     </React.Fragment>
   );
 }
