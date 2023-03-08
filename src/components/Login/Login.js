@@ -4,6 +4,7 @@ import { validateEmailID, validatePassword } from "../../helpers/validateForm/Va
 import './Login.css';
 import currentPage from "../../redux/actions";
 import Card from "react-bootstrap/Card";
+import FetchData from "../../helpers/fetchData";
 
 function Login() {
   let userId = useRef("");
@@ -13,10 +14,11 @@ function Login() {
 
   function validateSignIn(e) {
     e.preventDefault();
+    let data = {'email':`${userId.current.value}`, 'password':`${userPassword.current.value}`};
 
     if (!buttonDisabled) {
-      alert("validating user");
-      dispatch(currentPage('dashboard'));
+      if (FetchData('login',data)) dispatch(currentPage('dashboard')) ;
+      else alert("error please check the credentials");
     } else {
       alert("please check your username and password")
     }
