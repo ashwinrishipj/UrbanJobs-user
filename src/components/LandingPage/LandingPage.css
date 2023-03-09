@@ -1,5 +1,14 @@
 .update{
-    overflow:hidden !important;
+    overflow: hidden !important;
     min-height: 100vh !important;
     min-width: 100vw !important;
+}
+
+.bg-black{
+    background: #35393d !important;
+    color: whitesmoke !important;
+}
+
+.border-curvy{
+    border-radius: 25px !important; 
 }
