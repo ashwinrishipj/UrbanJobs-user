@@ -5,6 +5,7 @@ import './Login.css';
 import currentPage from "../../redux/actions";
 import Card from "react-bootstrap/Card";
 import validateLogin from "../../helpers/fetchData";
+import Nav from 'react-bootstrap/Nav';
 
 function Login() {
   let userId = useRef("");
@@ -84,7 +85,7 @@ function Login() {
               </button>
 
               <div className="mt-3">
-                <label>Don't have an account?</label> <button className="btn btn-outline shadow-none btn-underline" onClick={() => dispatch(currentPage('register'))}>Register here!</button>
+                <label>Don't have an account?</label> <Nav.Link onClick={() => dispatch(currentPage('register'))}>Register here!</Nav.Link>
               </div>
             </Card.Body>
           </Card>

@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { validateEmailID, validatePassword } from "../../helpers/validateForm/ValidateForm";
 import Card from "react-bootstrap/Card";
 import currentPage from "../../redux/actions";
+import Nav from 'react-bootstrap/Nav';
 
 function Register() {
     let userId = useRef("");
@@ -64,7 +65,7 @@ function Register() {
                             </button>
 
                             <div className="mt-3">
-                                <button className="btn btn-outline shadow-none btn-underline" onClick={() => dispatch(currentPage('login'))}>Login here </button>
+                                <Nav.Link onClick={() => dispatch(currentPage('login'))}> Login here </Nav.Link>
                             </div>
                         </Card.Body>
                     </Card>
