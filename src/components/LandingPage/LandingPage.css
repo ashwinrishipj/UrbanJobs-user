@@ -9,6 +9,11 @@
     color: whitesmoke !important;
 }
 
-.border-curvy{
-    border-radius: 25px !important; 
+.curved-border{
+    border-radius: 20px !important;
+}
+
+.header-margin-align{
+    margin-left: -15px !important;
+    margin-right: -12px !important;
 }

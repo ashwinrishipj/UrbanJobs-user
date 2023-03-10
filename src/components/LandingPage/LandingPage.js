@@ -34,7 +34,7 @@ function LandingPage() {
 
   return (
     <React.Fragment>
-      <LoadComponents />
+      <Dashboard />
     </React.Fragment>
   );
 }
