@@ -5,7 +5,7 @@ import Login from "../Login/Login";
 import './LandingPage.css';
 import { useSelector } from "react-redux";
 import Register from "../Register/Register";
-import Dashboard from "../DashBoard/Dashboard";
+import Dashboard from "../DashBoard/dashboard";
 
 function LandingPage() {
 
